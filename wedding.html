@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>婚礼排座 · 可删除圆桌</title>
+    <title>婚礼排座 · PWA版</title>
+    <!-- PWA 配置 -->
+    <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22%E5%A9%9A%E7%A4%BC%E6%8E%92%E5%BA%A7%22%2C%22short_name%22%3A%22%E5%A9%9A%E5%AE%B4%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23fff8f7%22%2C%22theme_color%22%3A%22%23b13e3e%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/0lEQVR4nO2ZzytEURTHP29CWUhJWSkLNhY2Nn5sWJCdBRsLyVIpC2XBTv4GfwBKSVkoC5KdnZQd+RFbmPecM/fOvJl5M/e+O/N+Np73u+fcc9+53zvn3PvUGGOMMcYYY4wxZQlCNkUImV1C5jT8f0HInAkhU/YdQsi0hZApCyFjQshohQ3hE0JG9m0hZKoQMimEjOzbQsiU00XIaP+3j5BR7/8WQiZqP4SM2L8tISPVvy2EjHj/t4SMcP+2kBHq30bIq+5fq/8q/B8NefX+WyHk5fW3hDy8/hYy8vpbCLn1+lvIqOtvIZOuv4U8uv4WMun6W8ik628hna6/hUy6/hYy6fpbTzpd/6B0uv6g6XT9g6bT9Q+aTtc/aDpd/6DpdP2DptP1D5pO1z9oOl1/HRZzHws1/beY+5jM/y3mPjLzv8XcR1b+t5j7yM7/FnMfWfnfYu4jK/9bzH1k5X+LuY+s/G8x95GZ/4Vc+8jM/1yu5drHyP9czn2MzP9czn2MzP9czn2MzP9czn2MzP9czn2MzP9czn2MzP9czn2MzP9czn2MzP9czn2MzP9czn2M7D9F4T5G9p+icB8j+09RuI+R/acImZ7DfYzsP0XhPkb2n6JwHyP7T1G4j5H9pwghY4wxxhhjjCmJ4AeMYq8YFcdvOQAAAABJRU5ErkJggg%3D%3D%22%2C%22sizes%22%3A%2248x48%22%2C%22type%22%3A%22image/png%22%7D%2C%7B%22src%22%3A%22data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAADf0lEQVR4nO2aTWhcVRTHf29GJBStn5SALYjQFhFciC4EFcSNoCtxUcGVCIrUXShdiAhKXXVjBReKLnShCxUUBF1IRcGFolKkFcSyi6B+gFhLK6S2oJ8L/2dMzLt5796ZO+/emUnyP0uYee+ec37v3HPP3NwUBQUFBQUFBT2i0m9Fqoz6F1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1UzqhbV/wE4nHrlTlT5fQAAAABJRU5ErkJggg%3D%3D%22%2C%22sizes%22%3A%2260x60%22%2C%22type%22%3A%22image/png%22%7D%5D%7D">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="婚礼排座">
+    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAADf0lEQVR4nO2aTWhcVRTHf29GJBStn5SALYjQFhFciC4EFcSNoCtxUcGVCIrUXShdiAhKXXVjBReKLnShCxUUBF1IRcGFolKkFcSyi6B+gFhLK6S2oJ8L/2dMzLt5796ZO+/emUnyP0uYee+ec37v3HPP3NwUBQUFBQUFBT2i0m9Fqoz6F1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1Uzqhb1H1UzqhbV/wE4nHrlTlT5fQAAAABJRU5ErkJggg==">
     <style>
         * {
             box-sizing: border-box;
@@ -18,8 +24,57 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 0;
+            padding: 0;
+            margin: 0;
             touch-action: pan-y;
+        }
+
+        /* 新增：用户信息栏 */
+        .user-bar {
+            background: #ffffffdd;
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ffc3b0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            background: #b13e3e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: #642f27;
+        }
+
+        .save-status {
+            font-size: 12px;
+            color: #4CAF50;
+            background: #e8f5e9;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .app-container {
@@ -27,20 +82,22 @@
             max-width: 480px;
             margin: 0 auto;
             background: #fffaf5;
-            border-radius: 40px 40px 30px 30px;
             box-shadow: 0 25px 50px -8px rgba(140, 70, 60, 0.3);
             overflow: hidden;
             border: 1px solid #fcd0c6;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .header {
             background: #ffffff;
-            padding: 18px 24px 10px 24px;
+            padding: 12px 20px;
             border-bottom: 2px solid #ffc3b0;
         }
 
         .header h1 {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 600;
             color: #9f4a3a;
             display: flex;
@@ -48,53 +105,35 @@
             gap: 8px;
         }
 
-        .header h1 span {
-            background: #fde1da;
-            font-size: 16px;
-            padding: 4px 14px;
-            border-radius: 60px;
-            color: #904434;
-        }
-
-        .stage-info {
-            background: #fde7e0;
-            padding: 14px 20px;
+        /* 新增：固定按钮容器 - 始终居中 */
+        .fixed-button-container {
+            position: sticky;
+            top: 0;
+            z-index: 90;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #fccaba;
-            flex-wrap: wrap;
+            justify-content: center;
+            padding: 8px 0;
+            background: #fffaf5;
+            border-bottom: 1px solid #ffd9d4;
         }
 
-        .stage-badge {
-            background: #b13e3e;
-            color: white;
-            padding: 8px 22px;
-            border-radius: 60px;
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            box-shadow: 0 4px 10px #b13e3e80;
+        .center-buttons {
             display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .stage-badge i {
-            font-size: 26px;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 10px;
+            gap: 12px;
+            background: #ffffffdd;
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(177, 62, 62, 0.2);
+            border: 1px solid #ffb4a2;
         }
 
         .icon-btn {
             background: #fff2ed;
             border: 1px solid #ffb4a2;
-            border-radius: 50px;
-            padding: 10px 18px;
-            font-size: 18px;
+            border-radius: 40px;
+            padding: 8px 16px;
+            font-size: 16px;
             font-weight: 500;
             color: #642f27;
             display: flex;
@@ -110,24 +149,20 @@
         }
 
         .canvas-wrapper {
+            flex: 1;
             background: #faf0ea;
             background-image: radial-gradient(circle at 20px 20px, #f0d9d1 2px, transparent 2px), 
                               radial-gradient(circle at 80px 150px, #f0d9d1 2px, transparent 2px);
             background-size: 60px 60px, 120px 120px;
-            padding: 0;
             position: relative;
-            min-height: 560px;
-            max-height: 620px;
             overflow: hidden;
             touch-action: none;
-            border-bottom: 2px solid #ffcfbf;
         }
 
         #zoomContainer {
             position: relative;
             width: 100%;
             height: 100%;
-            min-height: 560px;
             transform-origin: 0 0;
             background: transparent;
             will-change: transform;
@@ -137,81 +172,86 @@
             position: relative;
             width: 100%;
             height: 100%;
-            min-height: 560px;
             background: transparent;
             user-select: none;
-            -webkit-user-select: none;
+        }
+
+        /* 舞台也可拖动 */
+        .stage-marker {
+            position: absolute;
+            background: #c93f2b;
+            color: #ffefc0;
+            font-size: 24px;
+            font-weight: 800;
+            padding: 10px 30px;
+            border-radius: 60px;
+            box-shadow: 0 8px 0 #752e1e, 0 10px 20px #ac4b38;
+            z-index: 15;
+            border: 3px solid #ffc4a2;
+            letter-spacing: 4px;
+            white-space: nowrap;
+            cursor: grab;
+            touch-action: none;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 60px;
+        }
+
+        .stage-marker:active {
+            cursor: grabbing;
+            box-shadow: 0 4px 0 #752e1e, 0 10px 20px #ac4b38;
+            transform: translate(-50%, -50%) scale(0.98);
         }
 
         .table-drag-item {
             position: absolute;
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             background: #fff9f2;
             border-radius: 50%;
-            box-shadow: 0 10px 18px rgba(150, 70, 50, 0.3), 0 0 0 2px #ffc2b0 inset, 0 0 0 4px #fff8f0 inset;
+            box-shadow: 0 10px 18px rgba(150, 70, 50, 0.3), 0 0 0 2px #ffc2b0 inset;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: grab;
             touch-action: none;
-            transition: box-shadow 0.1s;
             border: 2px solid #d86b56;
             will-change: left, top;
             z-index: 10;
         }
 
-        .table-drag-item:active {
-            cursor: grabbing;
-            box-shadow: 0 15px 25px #b15a4a;
-            z-index: 999;
-        }
-
-        /* 删除按钮 - 新增 */
         .delete-table-btn {
             position: absolute;
-            top: -10px;
-            left: -10px;
+            top: -8px;
+            left: -8px;
             background: #c43d3d;
             color: white;
             border-radius: 50%;
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            font-weight: bold;
-            border: 3px solid #fff3e0;
+            font-size: 18px;
+            border: 2px solid white;
             box-shadow: 0 4px 8px #6b2f2f;
             cursor: pointer;
-            pointer-events: auto;
             z-index: 200;
-            user-select: none;
-            transition: 0.1s;
-        }
-
-        .delete-table-btn:active {
-            background: #9e2b2b;
-            transform: scale(1.1);
         }
 
         .table-center-name {
             background: #b44934;
             color: white;
             font-weight: bold;
-            font-size: 15px;
-            padding: 5px 10px;
-            border-radius: 40px;
-            max-width: 100px;
+            font-size: 14px;
+            padding: 4px 8px;
+            border-radius: 30px;
+            max-width: 90px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            border: 1px solid #ffc2a1;
-            box-shadow: 0 2px 6px #461b13;
             margin-top: 5px;
-            z-index: 3;
             cursor: pointer;
         }
 
@@ -219,119 +259,77 @@
             position: absolute;
             background: #fcedda;
             border: 2px solid #e07e66;
-            border-radius: 40px;
-            padding: 3px 8px;
-            font-size: 11px;
+            border-radius: 30px;
+            padding: 2px 6px;
+            font-size: 10px;
             font-weight: 600;
             color: #522e24;
             white-space: nowrap;
-            max-width: 85px;
+            max-width: 70px;
             overflow: hidden;
             text-overflow: ellipsis;
-            box-shadow: 0 3px 5px rgba(110, 40, 20, 0.2);
+            box-shadow: 0 2px 4px rgba(110, 40, 20, 0.2);
             pointer-events: auto;
-            background: #fff3e9;
             transform: translate(-50%, -50%);
             z-index: 20;
-            transition: background 0.1s;
-            text-align: center;
         }
 
         .guest-chip.empty {
             border: 2px dashed #d49b8a;
             background: #fae2da;
             color: #a56553;
-            font-style: italic;
         }
 
-        .stage-marker {
+        .seat-adjust {
             position: absolute;
-            left: 50%;
-            top: 30px;
-            transform: translateX(-50%);
-            background: #c93f2b;
-            color: #ffefc0;
-            font-size: 28px;
-            font-weight: 800;
-            padding: 12px 36px;
-            border-radius: 100px;
-            box-shadow: 0 12px 0 #752e1e, 0 15px 25px #ac4b38;
-            z-index: 5;
-            border: 3px solid #ffc4a2;
-            letter-spacing: 6px;
-            white-space: nowrap;
+            bottom: -5px;
+            right: -5px;
+            background: #b13e3e;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 2px solid white;
+            box-shadow: 0 4px 8px #aa4c3a;
+            cursor: pointer;
+            z-index: 100;
         }
 
         .footer-panel {
             background: #fff6f0;
-            padding: 14px 20px 20px 20px;
+            padding: 12px 16px;
             border-top: 1px solid #ffbba8;
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
-            justify-content: center;
         }
 
         .big-add-btn {
             background: #b13e3e;
             border: none;
-            border-radius: 60px;
-            padding: 16px 25px;
-            font-size: 20px;
+            border-radius: 40px;
+            padding: 12px 20px;
+            font-size: 18px;
             font-weight: 600;
             color: white;
             display: flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 8px 18px #b13e3e80;
-            flex: 1 1 auto;
+            gap: 8px;
+            flex: 1;
             justify-content: center;
-        }
-
-        .big-add-btn:active {
-            background: #942f2f;
-            transform: scale(0.97);
         }
 
         .reset-btn {
             background: #f8e3dc;
             border: 1px solid #c95f48;
-            border-radius: 60px;
-            padding: 16px 18px;
-            font-size: 18px;
-            font-weight: 500;
+            border-radius: 40px;
+            padding: 12px 16px;
+            font-size: 16px;
             color: #773d30;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .seat-adjust {
-            position: absolute;
-            bottom: -8px;
-            right: -8px;
-            background: #b13e3e;
-            color: white;
-            border-radius: 30px;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            font-weight: bold;
-            border: 2px solid white;
-            box-shadow: 0 4px 8px #aa4c3a;
-            cursor: pointer;
-            pointer-events: auto;
-            z-index: 100;
-            user-select: none;
-        }
-
-        .seat-adjust:active {
-            background: #8f2f2f;
-            transform: scale(1.1);
         }
 
         .inline-edit-input {
@@ -339,7 +337,7 @@
             background: white;
             border: 3px solid #d1624b;
             border-radius: 40px;
-            padding: 8px 18px;
+            padding: 8px 16px;
             font-size: 16px;
             z-index: 2000;
             width: 160px;
@@ -347,50 +345,89 @@
             display: none;
         }
 
-        .tip {
-            font-size: 12px;
-            color: #a47062;
+        /* 登录模态框 */
+        .login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+        }
+
+        .login-box {
+            background: white;
+            padding: 30px;
+            border-radius: 40px;
+            width: 300px;
             text-align: center;
+        }
+
+        .login-box input {
             width: 100%;
-            margin-top: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #ffc3b0;
+            border-radius: 30px;
+            font-size: 16px;
+        }
+
+        .login-box button {
+            background: #b13e3e;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 <div class="app-container">
-    <div class="header">
-        <h1>
-            🥂 圆桌喜宴 🥂
-            <span>可删除</span>
-        </h1>
+    <!-- 用户栏 -->
+    <div class="user-bar">
+        <div class="user-info" id="userInfo">
+            <div class="user-avatar">👤</div>
+            <span class="user-name" id="userNameDisplay">游客</span>
+        </div>
+        <div class="save-status" id="saveStatus">💾 已保存</div>
     </div>
 
-    <div class="stage-info">
-        <div class="stage-badge">
-            <i>🎤</i> 主舞台 <i>🎭</i>
-        </div>
-        <div class="action-buttons">
-            <button class="icon-btn" id="resetViewBtn"><span>🔍</span> 重置视图</button>
-            <button class="icon-btn" id="resetPositionsBtn"><span>🔄</span> 重置位置</button>
+    <!-- 固定按钮容器 - 始终居中 -->
+    <div class="fixed-button-container">
+        <div class="center-buttons">
+            <button class="icon-btn" id="resetViewBtn"><span>🔍</span> 缩放</button>
+            <button class="icon-btn" id="resetPositionsBtn"><span>🔄</span> 重置</button>
+            <button class="icon-btn" id="saveToWeChatBtn"><span>💾</span> 保存</button>
         </div>
     </div>
 
     <div class="canvas-wrapper" id="canvasWrapper">
-        <div id="zoomContainer" style="transform: scale(1);">
+        <div id="zoomContainer">
             <div id="dragCanvas">
-                <div class="stage-marker" style="top: 20px; left: 50%; transform: translateX(-50%);">✨ 舞台 ✨</div>
+                <!-- 舞台 (可拖动) -->
+                <div class="stage-marker" id="stageMarker">✨ 舞台 ✨</div>
             </div>
         </div>
     </div>
 
     <div class="footer-panel">
-        <button class="big-add-btn" id="addTableBtn">
-            <span>➕</span> 增加圆桌
-        </button>
-        <button class="reset-btn" id="resetExampleBtn">
-            <span>🔄</span> 示例布局
-        </button>
-        <div class="tip">👆 点击左上角🗑️删除桌子 · 双击名字修改 · 右下角👥调整人数</div>
+        <button class="big-add-btn" id="addTableBtn">➕ 增加圆桌</button>
+        <button class="reset-btn" id="resetExampleBtn">🔄 示例</button>
+    </div>
+
+    <!-- 登录模态框 -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-box">
+            <h2 style="color: #b13e3e;">🎉 创建账号</h2>
+            <input type="text" id="usernameInput" placeholder="输入昵称" value="婚礼策划师">
+            <button id="loginBtn">进入我的婚礼排座</button>
+        </div>
     </div>
 
     <input type="text" id="guestEditor" class="inline-edit-input" placeholder="输入宾客姓名">
@@ -398,23 +435,61 @@
 
 <script>
     (function() {
-        // 初始数据
-        let tables = [
-            { id: 't1', name: '主婚桌', seats: 6, left: 160, top: 180, guests: ['', '张建国', '李秀芬', '', '王磊', '赵丽'] },
-            { id: 't2', name: '至亲桌', seats: 4, left: 280, top: 330, guests: ['', '陈红', '', '刘伟'] },
-            { id: 't3', name: '朋友A桌', seats: 5, left: 40, top: 350, guests: ['周杰伦', '林俊杰', '蔡依林', '', '孙燕姿'] }
-        ];
+        // ========== 数据管理 ==========
+        let currentUser = localStorage.getItem('wedding_user') || '游客';
+        let tables = [];
+        let stagePos = { left: 50, top: 60 }; // 舞台位置（百分比模式）
+
+        // 尝试加载保存的数据
+        try {
+            const saved = localStorage.getItem(`wedding_tables_${currentUser}`);
+            if (saved) {
+                tables = JSON.parse(saved);
+            } else {
+                // 默认数据
+                tables = [
+                    { id: 't1', name: '主婚桌', seats: 6, left: 160, top: 180, guests: ['', '张建国', '李秀芬', '', '王磊', '赵丽'] },
+                    { id: 't2', name: '至亲桌', seats: 4, left: 280, top: 330, guests: ['', '陈红', '', '刘伟'] },
+                    { id: 't3', name: '朋友A桌', seats: 5, left: 40, top: 350, guests: ['周杰伦', '林俊杰', '蔡依林', '', '孙燕姿'] }
+                ];
+            }
+            
+            const savedStage = localStorage.getItem(`wedding_stage_${currentUser}`);
+            if (savedStage) {
+                stagePos = JSON.parse(savedStage);
+            }
+        } catch (e) {
+            console.log('加载失败，使用默认数据');
+        }
+
+        // 更新显示用户名
+        document.getElementById('userNameDisplay').textContent = currentUser;
 
         const canvas = document.getElementById('dragCanvas');
         const wrapper = document.getElementById('canvasWrapper');
         const zoomContainer = document.getElementById('zoomContainer');
         const guestEditor = document.getElementById('guestEditor');
+        const stageMarker = document.getElementById('stageMarker');
 
         let scale = 1.0;
         const MIN_SCALE = 0.5;
         const MAX_SCALE = 2.5;
         let lastDistance = 0;
         let currentEditChip = null;
+
+        // 保存状态
+        function saveToStorage() {
+            try {
+                localStorage.setItem(`wedding_tables_${currentUser}`, JSON.stringify(tables));
+                localStorage.setItem(`wedding_stage_${currentUser}`, JSON.stringify(stagePos));
+                document.getElementById('saveStatus').innerHTML = '💾 已保存 ' + new Date().toLocaleTimeString();
+                setTimeout(() => {
+                    document.getElementById('saveStatus').innerHTML = '💾 已保存';
+                }, 2000);
+            } catch (e) {
+                alert('保存失败，请稍后重试');
+            }
+        }
 
         function generateId() { return 'table_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6); }
 
@@ -425,9 +500,15 @@
             return arr;
         }
 
-        // 绘制所有桌子（新增删除按钮）
+        // 绘制所有桌子
         function renderTables() {
-            canvas.innerHTML = `<div class="stage-marker" style="top: 20px; left: 50%; transform: translateX(-50%);">✨ 舞台 ✨</div>`;
+            canvas.innerHTML = '';
+            // 重新添加舞台
+            canvas.appendChild(stageMarker);
+            
+            // 设置舞台位置
+            stageMarker.style.left = stagePos.left + '%';
+            stageMarker.style.top = stagePos.top + 'px';
 
             tables.forEach(table => {
                 table.guests = normalizeGuests(table.guests, table.seats);
@@ -435,42 +516,61 @@
                 const tableDiv = document.createElement('div');
                 tableDiv.className = 'table-drag-item';
                 tableDiv.id = table.id;
-                tableDiv.setAttribute('data-id', table.id);
                 tableDiv.style.left = table.left + 'px';
                 tableDiv.style.top = table.top + 'px';
 
-                // 删除按钮 - 新增功能
+                // 删除按钮
                 const deleteBtn = document.createElement('div');
                 deleteBtn.className = 'delete-table-btn';
                 deleteBtn.textContent = '🗑️';
                 deleteBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();  // 防止触发拖拽
-                    deleteTable(table.id);
+                    e.stopPropagation();
+                    tables = tables.filter(t => t.id !== table.id);
+                    renderTables();
+                    saveToStorage();
                 });
                 tableDiv.appendChild(deleteBtn);
 
-                // 中心桌名
+                // 桌名
                 const nameSpan = document.createElement('div');
                 nameSpan.className = 'table-center-name';
                 nameSpan.textContent = table.name;
                 nameSpan.addEventListener('dblclick', (e) => {
                     e.stopPropagation();
-                    openTableNameEditor(table);
+                    const newName = prompt('修改桌名', table.name);
+                    if (newName !== null) {
+                        table.name = newName.trim() || '未命名';
+                        renderTables();
+                        saveToStorage();
+                    }
                 });
                 tableDiv.appendChild(nameSpan);
 
-                // 加减座位按钮
+                // 座位调整按钮
                 const seatBtn = document.createElement('div');
                 seatBtn.className = 'seat-adjust';
                 seatBtn.textContent = '👥';
                 seatBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    adjustSeats(table);
+                    let newSeats = prompt(`调整人数 (1-12)`, table.seats);
+                    if (newSeats) {
+                        newSeats = parseInt(newSeats);
+                        if (newSeats >= 1 && newSeats <= 12) {
+                            table.seats = newSeats;
+                            if (table.guests.length > newSeats) {
+                                table.guests = table.guests.slice(0, newSeats);
+                            } else {
+                                table.guests = [...table.guests, ...Array(newSeats - table.guests.length).fill('')];
+                            }
+                            renderTables();
+                            saveToStorage();
+                        }
+                    }
                 });
                 tableDiv.appendChild(seatBtn);
 
-                // 宾客围成一圈
-                const centerX = 65, centerY = 65, radius = 48;
+                // 宾客座位
+                const centerX = 60, centerY = 60, radius = 45;
                 for (let i = 0; i < table.seats; i++) {
                     const angle = (i / table.seats) * 2 * Math.PI - Math.PI/2;
                     const x = centerX + radius * Math.cos(angle);
@@ -483,7 +583,6 @@
                     chip.setAttribute('data-seat-index', i);
                     chip.style.left = x + 'px';
                     chip.style.top = y + 'px';
-                    chip.style.transform = 'translate(-50%, -50%)';
                     chip.addEventListener('dblclick', (e) => {
                         e.stopPropagation();
                         openGuestEditor(chip, table.id, i);
@@ -494,114 +593,47 @@
                 canvas.appendChild(tableDiv);
             });
 
-            makeTablesDraggable();
+            makeDraggable();
+            saveToStorage(); // 每次渲染后自动保存
         }
 
-        // 新增：删除桌子函数
-        function deleteTable(tableId) {
-            // 过滤掉要删除的桌子
-            tables = tables.filter(t => t.id !== tableId);
-            renderTables();  // 重新绘制
-        }
-
-        function adjustSeats(table) {
-            let newSeats = prompt(`调整 "${table.name}" 的人数 (1-12)`, table.seats);
-            if (newSeats === null) return;
-            newSeats = parseInt(newSeats, 10);
-            if (isNaN(newSeats) || newSeats < 1) newSeats = 1;
-            if (newSeats > 12) newSeats = 12;
-
-            if (newSeats !== table.seats) {
-                table.seats = newSeats;
-                if (table.guests.length > newSeats) {
-                    table.guests = table.guests.slice(0, newSeats);
-                } else if (table.guests.length < newSeats) {
-                    table.guests = [...table.guests, ...Array(newSeats - table.guests.length).fill('')];
-                }
-                renderTables();
-            }
-        }
-
+        // 打开宾客编辑
         function openGuestEditor(chip, tableId, seatIdx) {
             const table = tables.find(t => t.id === tableId);
             if (!table) return;
-            const currentName = table.guests[seatIdx] || '';
+            
             guestEditor.style.display = 'block';
-            guestEditor.value = currentName;
+            guestEditor.value = table.guests[seatIdx] || '';
 
             const rect = chip.getBoundingClientRect();
             const wrapperRect = wrapper.getBoundingClientRect();
-            let left = rect.left - wrapperRect.left + rect.width/2 - 80;
-            let top = rect.top - wrapperRect.top - 45;
-
-            left = Math.max(10, Math.min(left, wrapper.clientWidth - 170));
-            top = Math.max(10, top);
-
-            guestEditor.style.left = left + 'px';
-            guestEditor.style.top = top + 'px';
+            guestEditor.style.left = (rect.left - wrapperRect.left + 20) + 'px';
+            guestEditor.style.top = (rect.top - wrapperRect.top - 40) + 'px';
             guestEditor.focus();
 
-            currentEditChip = { chip, tableId, seatIdx };
-
-            const saveHandler = function() {
-                if (currentEditChip) {
-                    const newName = guestEditor.value.trim();
-                    const t = tables.find(t => t.id === currentEditChip.tableId);
-                    if (t && t.guests[currentEditChip.seatIdx] !== undefined) {
-                        t.guests[currentEditChip.seatIdx] = newName;
-                    }
-                    if (currentEditChip.chip) {
-                        currentEditChip.chip.textContent = newName === '' ? '空位' : newName;
-                        if (newName === '') {
-                            currentEditChip.chip.classList.add('empty');
-                        } else {
-                            currentEditChip.chip.classList.remove('empty');
-                        }
-                    }
+            const saveHandler = () => {
+                if (table && seatIdx !== undefined) {
+                    table.guests[seatIdx] = guestEditor.value;
+                    renderTables();
                 }
                 guestEditor.style.display = 'none';
-                currentEditChip = null;
             };
 
-            const onKeyDown = (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    saveHandler();
-                    cleanup();
-                }
+            guestEditor.onkeydown = (e) => {
+                if (e.key === 'Enter') saveHandler();
             };
-
-            const outsideClick = (e) => {
-                if (!guestEditor.contains(e.target) && !(currentEditChip && currentEditChip.chip && currentEditChip.chip.contains(e.target))) {
-                    saveHandler();
-                    cleanup();
-                }
-            };
-
-            function cleanup() {
-                guestEditor.removeEventListener('keydown', onKeyDown);
-                document.removeEventListener('click', outsideClick);
-            }
-
-            guestEditor.addEventListener('keydown', onKeyDown);
-            document.addEventListener('click', outsideClick);
+            
+            guestEditor.onblur = saveHandler;
         }
 
-        function openTableNameEditor(table) {
-            const newName = prompt('修改桌名', table.name);
-            if (newName !== null) {
-                table.name = newName.trim() || '未命名';
-                renderTables();
-            }
-        }
-
-        function makeTablesDraggable() {
-            const draggables = document.querySelectorAll('.table-drag-item');
-            let activeTable = null;
-            let offsetX, offsetY;
+        // 拖拽功能（包括舞台）
+        function makeDraggable() {
+            const draggables = document.querySelectorAll('.table-drag-item, #stageMarker');
+            let activeElement = null;
+            let offsetX, offsetY, startLeft, startTop;
 
             const onPointerMove = (e) => {
-                if (!activeTable) return;
+                if (!activeElement) return;
                 e.preventDefault();
 
                 const wrapperRect = wrapper.getBoundingClientRect();
@@ -614,42 +646,52 @@
                 let newLeft = (clientX - wrapperRect.left) / scale - offsetX;
                 let newTop = (clientY - wrapperRect.top) / scale - offsetY;
 
-                newLeft = Math.max(0, Math.min(newLeft, (wrapper.clientWidth / scale) - 130));
-                newTop = Math.max(0, Math.min(newTop, (wrapper.clientHeight / scale) - 130));
+                // 边界限制
+                newLeft = Math.max(0, Math.min(newLeft, (wrapper.clientWidth / scale) - (activeElement.id === 'stageMarker' ? 120 : 120)));
+                newTop = Math.max(0, Math.min(newTop, (wrapper.clientHeight / scale) - (activeElement.id === 'stageMarker' ? 60 : 120)));
 
-                activeTable.style.left = newLeft + 'px';
-                activeTable.style.top = newTop + 'px';
-
-                const tableId = activeTable.id;
-                const tableData = tables.find(t => t.id === tableId);
-                if (tableData) {
-                    tableData.left = newLeft;
-                    tableData.top = newTop;
+                if (activeElement.id === 'stageMarker') {
+                    // 舞台使用百分比
+                    stagePos.left = (newLeft / (wrapper.clientWidth / scale)) * 100;
+                    stagePos.top = newTop;
+                    activeElement.style.left = stagePos.left + '%';
+                    activeElement.style.top = stagePos.top + 'px';
+                } else {
+                    activeElement.style.left = newLeft + 'px';
+                    activeElement.style.top = newTop + 'px';
+                    
+                    const tableId = activeElement.id;
+                    const tableData = tables.find(t => t.id === tableId);
+                    if (tableData) {
+                        tableData.left = newLeft;
+                        tableData.top = newTop;
+                    }
                 }
             };
 
             const onPointerUp = () => {
-                if (activeTable) {
-                    activeTable.style.cursor = 'grab';
-                    activeTable = null;
+                if (activeElement) {
+                    activeElement.style.cursor = 'grab';
+                    activeElement = null;
+                    saveToStorage(); // 拖拽结束后保存
                 }
                 document.removeEventListener('mousemove', onPointerMove);
                 document.removeEventListener('mouseup', onPointerUp);
                 document.removeEventListener('touchmove', onPointerMove);
                 document.removeEventListener('touchend', onPointerUp);
-                document.removeEventListener('touchcancel', onPointerUp);
             };
 
             const onPointerDown = (e) => {
-                // 如果点击的是删除按钮，不触发拖拽
-                if (e.target.classList.contains('delete-table-btn')) return;
+                if (e.target.classList.contains('delete-table-btn') || 
+                    e.target.classList.contains('seat-adjust') ||
+                    e.target.classList.contains('guest-chip')) return;
                 
-                const target = e.target.closest('.table-drag-item');
+                const target = e.target.closest('.table-drag-item, #stageMarker');
                 if (!target) return;
+                
                 e.preventDefault();
-
-                activeTable = target;
-                activeTable.style.cursor = 'grabbing';
+                activeElement = target;
+                activeElement.style.cursor = 'grabbing';
 
                 const wrapperRect = wrapper.getBoundingClientRect();
                 let clientX = e.clientX, clientY = e.clientY;
@@ -658,14 +700,16 @@
                     clientY = e.touches[0].clientY;
                 }
 
-                offsetX = (clientX - wrapperRect.left) / scale - activeTable.offsetLeft;
-                offsetY = (clientY - wrapperRect.top) / scale - activeTable.offsetTop;
+                const rect = activeElement.getBoundingClientRect();
+                offsetX = (clientX - wrapperRect.left) / scale - (activeElement.id === 'stageMarker' ? 
+                    (stagePos.left / 100 * (wrapper.clientWidth / scale)) : activeElement.offsetLeft);
+                offsetY = (clientY - wrapperRect.top) / scale - (activeElement.id === 'stageMarker' ? 
+                    stagePos.top : activeElement.offsetTop);
 
                 document.addEventListener('mousemove', onPointerMove);
                 document.addEventListener('mouseup', onPointerUp);
                 document.addEventListener('touchmove', onPointerMove, { passive: false });
                 document.addEventListener('touchend', onPointerUp);
-                document.addEventListener('touchcancel', onPointerUp);
             };
 
             draggables.forEach(el => {
@@ -676,6 +720,7 @@
             });
         }
 
+        // 缩放功能
         function initPinchZoom() {
             wrapper.addEventListener('touchstart', (e) => {
                 if (e.touches.length === 2) {
@@ -702,9 +747,7 @@
                 }
             });
 
-            wrapper.addEventListener('touchend', (e) => {
-                if (e.touches.length < 2) lastDistance = 0;
-            });
+            wrapper.addEventListener('touchend', () => { lastDistance = 0; });
         }
 
         function setScale(newScale) {
@@ -712,55 +755,69 @@
             zoomContainer.style.transform = `scale(${scale})`;
         }
 
-        function addTable() {
+        // ========== 事件绑定 ==========
+        document.getElementById('addTableBtn').addEventListener('click', () => {
             const newId = generateId();
-            const defaultSeats = 4;
-            let left = 50 + Math.random() * 150;
-            let top = 150 + Math.random() * 250;
             tables.push({
                 id: newId,
                 name: `桌 ${tables.length + 1}`,
-                seats: defaultSeats,
-                left: left,
-                top: top,
-                guests: Array(defaultSeats).fill('')
+                seats: 4,
+                left: 100 + Math.random() * 150,
+                top: 200 + Math.random() * 200,
+                guests: ['', '', '', '']
             });
             renderTables();
-        }
+        });
 
-        function resetToExample() {
+        document.getElementById('resetExampleBtn').addEventListener('click', () => {
             tables = [
                 { id: generateId(), name: '主婚桌', seats: 6, left: 160, top: 180, guests: ['', '张建国', '李秀芬', '', '王磊', '赵丽'] },
                 { id: generateId(), name: '至亲桌', seats: 4, left: 280, top: 330, guests: ['', '陈红', '', '刘伟'] },
                 { id: generateId(), name: '朋友A桌', seats: 5, left: 40, top: 350, guests: ['周杰伦', '林俊杰', '蔡依林', '', '孙燕姿'] }
             ];
             renderTables();
-        }
+        });
 
-        function resetPositions() {
+        document.getElementById('resetViewBtn').addEventListener('click', () => setScale(1.0));
+        
+        document.getElementById('resetPositionsBtn').addEventListener('click', () => {
             if (tables.length >= 1) tables[0].left = 160, tables[0].top = 180;
             if (tables.length >= 2) tables[1].left = 280, tables[1].top = 330;
             if (tables.length >= 3) tables[2].left = 40, tables[2].top = 350;
+            stagePos = { left: 50, top: 60 };
             renderTables();
-        }
-
-        function resetView() {
-            setScale(1.0);
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            renderTables();
-            initPinchZoom();
-            setScale(1.0);
-
-            document.getElementById('addTableBtn').addEventListener('click', addTable);
-            document.getElementById('resetExampleBtn').addEventListener('click', resetToExample);
-            document.getElementById('resetPositionsBtn').addEventListener('click', resetPositions);
-            document.getElementById('resetViewBtn').addEventListener('click', resetView);
         });
 
-        guestEditor.style.display = 'none';
+        document.getElementById('saveToWeChatBtn').addEventListener('click', saveToStorage);
+
+        // 登录相关
+        const loginModal = document.getElementById('loginModal');
+        if (!localStorage.getItem('wedding_user')) {
+            loginModal.style.display = 'flex';
+        }
+
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            const username = document.getElementById('usernameInput').value || '婚礼策划师';
+            localStorage.setItem('wedding_user', username);
+            currentUser = username;
+            document.getElementById('userNameDisplay').textContent = username;
+            loginModal.style.display = 'none';
+            // 重新加载用户数据
+            try {
+                const saved = localStorage.getItem(`wedding_tables_${username}`);
+                if (saved) tables = JSON.parse(saved);
+            } catch (e) {}
+            renderTables();
+        });
+
+        // 初始化
         wrapper.style.touchAction = 'none';
+        initPinchZoom();
+        renderTables();
+        guestEditor.style.display = 'none';
+
+        // 定期自动保存
+        setInterval(saveToStorage, 30000);
     })();
 </script>
 </body>

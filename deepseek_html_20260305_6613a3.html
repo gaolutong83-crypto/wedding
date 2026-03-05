@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>婚礼排座 · 可删除圆桌</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
+            background: #f5e3df;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 0;
+            touch-action: pan-y;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            background: #fffaf5;
+            border-radius: 40px 40px 30px 30px;
+            box-shadow: 0 25px 50px -8px rgba(140, 70, 60, 0.3);
+            overflow: hidden;
+            border: 1px solid #fcd0c6;
+        }
+
+        .header {
+            background: #ffffff;
+            padding: 18px 24px 10px 24px;
+            border-bottom: 2px solid #ffc3b0;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #9f4a3a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header h1 span {
+            background: #fde1da;
+            font-size: 16px;
+            padding: 4px 14px;
+            border-radius: 60px;
+            color: #904434;
+        }
+
+        .stage-info {
+            background: #fde7e0;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #fccaba;
+            flex-wrap: wrap;
+        }
+
+        .stage-badge {
+            background: #b13e3e;
+            color: white;
+            padding: 8px 22px;
+            border-radius: 60px;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 10px #b13e3e80;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stage-badge i {
+            font-size: 26px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .icon-btn {
+            background: #fff2ed;
+            border: 1px solid #ffb4a2;
+            border-radius: 50px;
+            padding: 10px 18px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #642f27;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(190, 80, 60, 0.2);
+            transition: 0.15s;
+        }
+
+        .icon-btn:active {
+            background: #ffe0d6;
+            transform: scale(0.96);
+        }
+
+        .canvas-wrapper {
+            background: #faf0ea;
+            background-image: radial-gradient(circle at 20px 20px, #f0d9d1 2px, transparent 2px), 
+                              radial-gradient(circle at 80px 150px, #f0d9d1 2px, transparent 2px);
+            background-size: 60px 60px, 120px 120px;
+            padding: 0;
+            position: relative;
+            min-height: 560px;
+            max-height: 620px;
+            overflow: hidden;
+            touch-action: none;
+            border-bottom: 2px solid #ffcfbf;
+        }
+
+        #zoomContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 560px;
+            transform-origin: 0 0;
+            background: transparent;
+            will-change: transform;
+        }
+
+        #dragCanvas {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 560px;
+            background: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .table-drag-item {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            background: #fff9f2;
+            border-radius: 50%;
+            box-shadow: 0 10px 18px rgba(150, 70, 50, 0.3), 0 0 0 2px #ffc2b0 inset, 0 0 0 4px #fff8f0 inset;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            touch-action: none;
+            transition: box-shadow 0.1s;
+            border: 2px solid #d86b56;
+            will-change: left, top;
+            z-index: 10;
+        }
+
+        .table-drag-item:active {
+            cursor: grabbing;
+            box-shadow: 0 15px 25px #b15a4a;
+            z-index: 999;
+        }
+
+        /* 删除按钮 - 新增 */
+        .delete-table-btn {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: #c43d3d;
+            color: white;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            border: 3px solid #fff3e0;
+            box-shadow: 0 4px 8px #6b2f2f;
+            cursor: pointer;
+            pointer-events: auto;
+            z-index: 200;
+            user-select: none;
+            transition: 0.1s;
+        }
+
+        .delete-table-btn:active {
+            background: #9e2b2b;
+            transform: scale(1.1);
+        }
+
+        .table-center-name {
+            background: #b44934;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            padding: 5px 10px;
+            border-radius: 40px;
+            max-width: 100px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid #ffc2a1;
+            box-shadow: 0 2px 6px #461b13;
+            margin-top: 5px;
+            z-index: 3;
+            cursor: pointer;
+        }
+
+        .guest-chip {
+            position: absolute;
+            background: #fcedda;
+            border: 2px solid #e07e66;
+            border-radius: 40px;
+            padding: 3px 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #522e24;
+            white-space: nowrap;
+            max-width: 85px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-shadow: 0 3px 5px rgba(110, 40, 20, 0.2);
+            pointer-events: auto;
+            background: #fff3e9;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+            transition: background 0.1s;
+            text-align: center;
+        }
+
+        .guest-chip.empty {
+            border: 2px dashed #d49b8a;
+            background: #fae2da;
+            color: #a56553;
+            font-style: italic;
+        }
+
+        .stage-marker {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            transform: translateX(-50%);
+            background: #c93f2b;
+            color: #ffefc0;
+            font-size: 28px;
+            font-weight: 800;
+            padding: 12px 36px;
+            border-radius: 100px;
+            box-shadow: 0 12px 0 #752e1e, 0 15px 25px #ac4b38;
+            z-index: 5;
+            border: 3px solid #ffc4a2;
+            letter-spacing: 6px;
+            white-space: nowrap;
+        }
+
+        .footer-panel {
+            background: #fff6f0;
+            padding: 14px 20px 20px 20px;
+            border-top: 1px solid #ffbba8;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .big-add-btn {
+            background: #b13e3e;
+            border: none;
+            border-radius: 60px;
+            padding: 16px 25px;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 18px #b13e3e80;
+            flex: 1 1 auto;
+            justify-content: center;
+        }
+
+        .big-add-btn:active {
+            background: #942f2f;
+            transform: scale(0.97);
+        }
+
+        .reset-btn {
+            background: #f8e3dc;
+            border: 1px solid #c95f48;
+            border-radius: 60px;
+            padding: 16px 18px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #773d30;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .seat-adjust {
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            background: #b13e3e;
+            color: white;
+            border-radius: 30px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            border: 2px solid white;
+            box-shadow: 0 4px 8px #aa4c3a;
+            cursor: pointer;
+            pointer-events: auto;
+            z-index: 100;
+            user-select: none;
+        }
+
+        .seat-adjust:active {
+            background: #8f2f2f;
+            transform: scale(1.1);
+        }
+
+        .inline-edit-input {
+            position: fixed;
+            background: white;
+            border: 3px solid #d1624b;
+            border-radius: 40px;
+            padding: 8px 18px;
+            font-size: 16px;
+            z-index: 2000;
+            width: 160px;
+            box-shadow: 0 10px 30px black;
+            display: none;
+        }
+
+        .tip {
+            font-size: 12px;
+            color: #a47062;
+            text-align: center;
+            width: 100%;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="app-container">
+    <div class="header">
+        <h1>
+            🥂 圆桌喜宴 🥂
+            <span>可删除</span>
+        </h1>
+    </div>
+
+    <div class="stage-info">
+        <div class="stage-badge">
+            <i>🎤</i> 主舞台 <i>🎭</i>
+        </div>
+        <div class="action-buttons">
+            <button class="icon-btn" id="resetViewBtn"><span>🔍</span> 重置视图</button>
+            <button class="icon-btn" id="resetPositionsBtn"><span>🔄</span> 重置位置</button>
+        </div>
+    </div>
+
+    <div class="canvas-wrapper" id="canvasWrapper">
+        <div id="zoomContainer" style="transform: scale(1);">
+            <div id="dragCanvas">
+                <div class="stage-marker" style="top: 20px; left: 50%; transform: translateX(-50%);">✨ 舞台 ✨</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-panel">
+        <button class="big-add-btn" id="addTableBtn">
+            <span>➕</span> 增加圆桌
+        </button>
+        <button class="reset-btn" id="resetExampleBtn">
+            <span>🔄</span> 示例布局
+        </button>
+        <div class="tip">👆 点击左上角🗑️删除桌子 · 双击名字修改 · 右下角👥调整人数</div>
+    </div>
+
+    <input type="text" id="guestEditor" class="inline-edit-input" placeholder="输入宾客姓名">
+</div>
+
+<script>
+    (function() {
+        // 初始数据
+        let tables = [
+            { id: 't1', name: '主婚桌', seats: 6, left: 160, top: 180, guests: ['', '张建国', '李秀芬', '', '王磊', '赵丽'] },
+            { id: 't2', name: '至亲桌', seats: 4, left: 280, top: 330, guests: ['', '陈红', '', '刘伟'] },
+            { id: 't3', name: '朋友A桌', seats: 5, left: 40, top: 350, guests: ['周杰伦', '林俊杰', '蔡依林', '', '孙燕姿'] }
+        ];
+
+        const canvas = document.getElementById('dragCanvas');
+        const wrapper = document.getElementById('canvasWrapper');
+        const zoomContainer = document.getElementById('zoomContainer');
+        const guestEditor = document.getElementById('guestEditor');
+
+        let scale = 1.0;
+        const MIN_SCALE = 0.5;
+        const MAX_SCALE = 2.5;
+        let lastDistance = 0;
+        let currentEditChip = null;
+
+        function generateId() { return 'table_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6); }
+
+        function normalizeGuests(guests, seats) {
+            let arr = guests || [];
+            if (arr.length > seats) return arr.slice(0, seats);
+            if (arr.length < seats) return [...arr, ...Array(seats - arr.length).fill('')];
+            return arr;
+        }
+
+        // 绘制所有桌子（新增删除按钮）
+        function renderTables() {
+            canvas.innerHTML = `<div class="stage-marker" style="top: 20px; left: 50%; transform: translateX(-50%);">✨ 舞台 ✨</div>`;
+
+            tables.forEach(table => {
+                table.guests = normalizeGuests(table.guests, table.seats);
+
+                const tableDiv = document.createElement('div');
+                tableDiv.className = 'table-drag-item';
+                tableDiv.id = table.id;
+                tableDiv.setAttribute('data-id', table.id);
+                tableDiv.style.left = table.left + 'px';
+                tableDiv.style.top = table.top + 'px';
+
+                // 删除按钮 - 新增功能
+                const deleteBtn = document.createElement('div');
+                deleteBtn.className = 'delete-table-btn';
+                deleteBtn.textContent = '🗑️';
+                deleteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();  // 防止触发拖拽
+                    deleteTable(table.id);
+                });
+                tableDiv.appendChild(deleteBtn);
+
+                // 中心桌名
+                const nameSpan = document.createElement('div');
+                nameSpan.className = 'table-center-name';
+                nameSpan.textContent = table.name;
+                nameSpan.addEventListener('dblclick', (e) => {
+                    e.stopPropagation();
+                    openTableNameEditor(table);
+                });
+                tableDiv.appendChild(nameSpan);
+
+                // 加减座位按钮
+                const seatBtn = document.createElement('div');
+                seatBtn.className = 'seat-adjust';
+                seatBtn.textContent = '👥';
+                seatBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    adjustSeats(table);
+                });
+                tableDiv.appendChild(seatBtn);
+
+                // 宾客围成一圈
+                const centerX = 65, centerY = 65, radius = 48;
+                for (let i = 0; i < table.seats; i++) {
+                    const angle = (i / table.seats) * 2 * Math.PI - Math.PI/2;
+                    const x = centerX + radius * Math.cos(angle);
+                    const y = centerY + radius * Math.sin(angle);
+                    const guestName = table.guests[i] || '';
+                    const chip = document.createElement('div');
+                    chip.className = 'guest-chip' + (guestName === '' ? ' empty' : '');
+                    chip.textContent = guestName === '' ? '空位' : guestName;
+                    chip.setAttribute('data-table-id', table.id);
+                    chip.setAttribute('data-seat-index', i);
+                    chip.style.left = x + 'px';
+                    chip.style.top = y + 'px';
+                    chip.style.transform = 'translate(-50%, -50%)';
+                    chip.addEventListener('dblclick', (e) => {
+                        e.stopPropagation();
+                        openGuestEditor(chip, table.id, i);
+                    });
+                    tableDiv.appendChild(chip);
+                }
+
+                canvas.appendChild(tableDiv);
+            });
+
+            makeTablesDraggable();
+        }
+
+        // 新增：删除桌子函数
+        function deleteTable(tableId) {
+            // 过滤掉要删除的桌子
+            tables = tables.filter(t => t.id !== tableId);
+            renderTables();  // 重新绘制
+        }
+
+        function adjustSeats(table) {
+            let newSeats = prompt(`调整 "${table.name}" 的人数 (1-12)`, table.seats);
+            if (newSeats === null) return;
+            newSeats = parseInt(newSeats, 10);
+            if (isNaN(newSeats) || newSeats < 1) newSeats = 1;
+            if (newSeats > 12) newSeats = 12;
+
+            if (newSeats !== table.seats) {
+                table.seats = newSeats;
+                if (table.guests.length > newSeats) {
+                    table.guests = table.guests.slice(0, newSeats);
+                } else if (table.guests.length < newSeats) {
+                    table.guests = [...table.guests, ...Array(newSeats - table.guests.length).fill('')];
+                }
+                renderTables();
+            }
+        }
+
+        function openGuestEditor(chip, tableId, seatIdx) {
+            const table = tables.find(t => t.id === tableId);
+            if (!table) return;
+            const currentName = table.guests[seatIdx] || '';
+            guestEditor.style.display = 'block';
+            guestEditor.value = currentName;
+
+            const rect = chip.getBoundingClientRect();
+            const wrapperRect = wrapper.getBoundingClientRect();
+            let left = rect.left - wrapperRect.left + rect.width/2 - 80;
+            let top = rect.top - wrapperRect.top - 45;
+
+            left = Math.max(10, Math.min(left, wrapper.clientWidth - 170));
+            top = Math.max(10, top);
+
+            guestEditor.style.left = left + 'px';
+            guestEditor.style.top = top + 'px';
+            guestEditor.focus();
+
+            currentEditChip = { chip, tableId, seatIdx };
+
+            const saveHandler = function() {
+                if (currentEditChip) {
+                    const newName = guestEditor.value.trim();
+                    const t = tables.find(t => t.id === currentEditChip.tableId);
+                    if (t && t.guests[currentEditChip.seatIdx] !== undefined) {
+                        t.guests[currentEditChip.seatIdx] = newName;
+                    }
+                    if (currentEditChip.chip) {
+                        currentEditChip.chip.textContent = newName === '' ? '空位' : newName;
+                        if (newName === '') {
+                            currentEditChip.chip.classList.add('empty');
+                        } else {
+                            currentEditChip.chip.classList.remove('empty');
+                        }
+                    }
+                }
+                guestEditor.style.display = 'none';
+                currentEditChip = null;
+            };
+
+            const onKeyDown = (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    saveHandler();
+                    cleanup();
+                }
+            };
+
+            const outsideClick = (e) => {
+                if (!guestEditor.contains(e.target) && !(currentEditChip && currentEditChip.chip && currentEditChip.chip.contains(e.target))) {
+                    saveHandler();
+                    cleanup();
+                }
+            };
+
+            function cleanup() {
+                guestEditor.removeEventListener('keydown', onKeyDown);
+                document.removeEventListener('click', outsideClick);
+            }
+
+            guestEditor.addEventListener('keydown', onKeyDown);
+            document.addEventListener('click', outsideClick);
+        }
+
+        function openTableNameEditor(table) {
+            const newName = prompt('修改桌名', table.name);
+            if (newName !== null) {
+                table.name = newName.trim() || '未命名';
+                renderTables();
+            }
+        }
+
+        function makeTablesDraggable() {
+            const draggables = document.querySelectorAll('.table-drag-item');
+            let activeTable = null;
+            let offsetX, offsetY;
+
+            const onPointerMove = (e) => {
+                if (!activeTable) return;
+                e.preventDefault();
+
+                const wrapperRect = wrapper.getBoundingClientRect();
+                let clientX = e.clientX, clientY = e.clientY;
+                if (e.touches) {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                }
+
+                let newLeft = (clientX - wrapperRect.left) / scale - offsetX;
+                let newTop = (clientY - wrapperRect.top) / scale - offsetY;
+
+                newLeft = Math.max(0, Math.min(newLeft, (wrapper.clientWidth / scale) - 130));
+                newTop = Math.max(0, Math.min(newTop, (wrapper.clientHeight / scale) - 130));
+
+                activeTable.style.left = newLeft + 'px';
+                activeTable.style.top = newTop + 'px';
+
+                const tableId = activeTable.id;
+                const tableData = tables.find(t => t.id === tableId);
+                if (tableData) {
+                    tableData.left = newLeft;
+                    tableData.top = newTop;
+                }
+            };
+
+            const onPointerUp = () => {
+                if (activeTable) {
+                    activeTable.style.cursor = 'grab';
+                    activeTable = null;
+                }
+                document.removeEventListener('mousemove', onPointerMove);
+                document.removeEventListener('mouseup', onPointerUp);
+                document.removeEventListener('touchmove', onPointerMove);
+                document.removeEventListener('touchend', onPointerUp);
+                document.removeEventListener('touchcancel', onPointerUp);
+            };
+
+            const onPointerDown = (e) => {
+                // 如果点击的是删除按钮，不触发拖拽
+                if (e.target.classList.contains('delete-table-btn')) return;
+                
+                const target = e.target.closest('.table-drag-item');
+                if (!target) return;
+                e.preventDefault();
+
+                activeTable = target;
+                activeTable.style.cursor = 'grabbing';
+
+                const wrapperRect = wrapper.getBoundingClientRect();
+                let clientX = e.clientX, clientY = e.clientY;
+                if (e.touches) {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                }
+
+                offsetX = (clientX - wrapperRect.left) / scale - activeTable.offsetLeft;
+                offsetY = (clientY - wrapperRect.top) / scale - activeTable.offsetTop;
+
+                document.addEventListener('mousemove', onPointerMove);
+                document.addEventListener('mouseup', onPointerUp);
+                document.addEventListener('touchmove', onPointerMove, { passive: false });
+                document.addEventListener('touchend', onPointerUp);
+                document.addEventListener('touchcancel', onPointerUp);
+            };
+
+            draggables.forEach(el => {
+                el.removeEventListener('mousedown', onPointerDown);
+                el.removeEventListener('touchstart', onPointerDown);
+                el.addEventListener('mousedown', onPointerDown);
+                el.addEventListener('touchstart', onPointerDown, { passive: false });
+            });
+        }
+
+        function initPinchZoom() {
+            wrapper.addEventListener('touchstart', (e) => {
+                if (e.touches.length === 2) {
+                    e.preventDefault();
+                    const dx = e.touches[0].clientX - e.touches[1].clientX;
+                    const dy = e.touches[0].clientY - e.touches[1].clientY;
+                    lastDistance = Math.sqrt(dx * dx + dy * dy);
+                }
+            });
+
+            wrapper.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 2) {
+                    e.preventDefault();
+                    const dx = e.touches[0].clientX - e.touches[1].clientX;
+                    const dy = e.touches[0].clientY - e.touches[1].clientY;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (lastDistance > 0) {
+                        const delta = distance / lastDistance;
+                        let newScale = scale * delta;
+                        newScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, newScale));
+                        setScale(newScale);
+                    }
+                    lastDistance = distance;
+                }
+            });
+
+            wrapper.addEventListener('touchend', (e) => {
+                if (e.touches.length < 2) lastDistance = 0;
+            });
+        }
+
+        function setScale(newScale) {
+            scale = newScale;
+            zoomContainer.style.transform = `scale(${scale})`;
+        }
+
+        function addTable() {
+            const newId = generateId();
+            const defaultSeats = 4;
+            let left = 50 + Math.random() * 150;
+            let top = 150 + Math.random() * 250;
+            tables.push({
+                id: newId,
+                name: `桌 ${tables.length + 1}`,
+                seats: defaultSeats,
+                left: left,
+                top: top,
+                guests: Array(defaultSeats).fill('')
+            });
+            renderTables();
+        }
+
+        function resetToExample() {
+            tables = [
+                { id: generateId(), name: '主婚桌', seats: 6, left: 160, top: 180, guests: ['', '张建国', '李秀芬', '', '王磊', '赵丽'] },
+                { id: generateId(), name: '至亲桌', seats: 4, left: 280, top: 330, guests: ['', '陈红', '', '刘伟'] },
+                { id: generateId(), name: '朋友A桌', seats: 5, left: 40, top: 350, guests: ['周杰伦', '林俊杰', '蔡依林', '', '孙燕姿'] }
+            ];
+            renderTables();
+        }
+
+        function resetPositions() {
+            if (tables.length >= 1) tables[0].left = 160, tables[0].top = 180;
+            if (tables.length >= 2) tables[1].left = 280, tables[1].top = 330;
+            if (tables.length >= 3) tables[2].left = 40, tables[2].top = 350;
+            renderTables();
+        }
+
+        function resetView() {
+            setScale(1.0);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderTables();
+            initPinchZoom();
+            setScale(1.0);
+
+            document.getElementById('addTableBtn').addEventListener('click', addTable);
+            document.getElementById('resetExampleBtn').addEventListener('click', resetToExample);
+            document.getElementById('resetPositionsBtn').addEventListener('click', resetPositions);
+            document.getElementById('resetViewBtn').addEventListener('click', resetView);
+        });
+
+        guestEditor.style.display = 'none';
+        wrapper.style.touchAction = 'none';
+    })();
+</script>
+</body>
+</html>
